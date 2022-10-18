@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    
+    <xacro:include filename="inertial_macros.xacro"/>
+
+        <!--Pendulum-->
+        <link name="conector_pole">
+            <visual>
+                <geometry>
+                    <box size="0.02 0.02 0.02"/>
+                </geometry>
+                <material name="black"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+            </visual>
+        </link>
+    
+        <joint name="conector_pole_joint" type="fixed">
+            <parent link="chassis"/>
+            <child link="conector_pole"/>
+            <origin xyz="0.15 0 0.15" />
+        </joint>
+    
+            <link name="pole">
+                <visual>
+                <geometry>
+                    <cylinder length="0.3" radius="0.01"/>
+                </geometry>
+                <material name="black"/>
+                <origin rpy="0 0 0" xyz="0 0 0.15"/>
+                </visual>
+            </link>
+    
+            <joint name="pole_joint" type="revolute">
+                <parent link="conector_pole"/>
+                <child link="pole"/>
+                <origin xyz="0 0 0" rpy="0 0 0.15"/>
+                <axis xyz="0 1 0"/>
+                <limit effort="1000.0" lower="-1.57075" upper="1.57075" velocity="1.0"/>
+            </joint>
+    
+            <!--link name="pole_mass">
+                <visual>
+                <geometry>
+                    <sphere radius="0.075"/>
+                </geometry>
+                <material name="blue"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+                </visual>
+            </link>
+    
+            <joint name="pole_mass_joint" type="fixed">
+                <origin xyz="0.15 0 1.5" rpy="0 0 0"/>
+                <axis xyz="0 0 0"/>
+                <parent link="pole"/>
+                <child link="pole_mass"/>
+            </joint-->
+    
+            <gazebo reference = "pole">
+                <material>Gazebo/Black</material>
+            </gazebo>
+    
+            <gazebo reference = "pole_mass">
+                <material>Gazebo/Blue</material>
+            </gazebo>
+    
+        <!--Pendulum/-->
+</robot>
