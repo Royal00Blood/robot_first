@@ -26,19 +26,20 @@
                     <cylinder length="0.3" radius="0.01"/>
                 </geometry>
                 <material name="black"/>
-                <origin rpy="0 0 0" xyz="0 0 0.15"/>
+                <origin rpy="0 0 0" xyz="0 0 0.3"/>
                 </visual>
             </link>
     
             <joint name="pole_joint" type="revolute">
-                <parent link="conector_pole"/>
+                <parent link="chassis"/>
                 <child link="pole"/>
-                <origin xyz="0 0 0" rpy="0 0 0.15"/>
-                <axis xyz="0 1 0"/>
-                <limit effort="1000.0" lower="-1.57075" upper="1.57075" velocity="1.0"/>
+                <origin xyz="0.15 0 0" rpy="0 0 -0.15"/>
+                <axis xyz="0 1.0 0"/>
+
+                <limit effort="1000.0" lower="-0.57075" upper="0.57075" velocity="1.0"/>
             </joint>
     
-            <!--link name="pole_mass">
+            <link name="pole_mass">
                 <visual>
                 <geometry>
                     <sphere radius="0.075"/>
@@ -53,14 +54,14 @@
                 <axis xyz="0 0 0"/>
                 <parent link="pole"/>
                 <child link="pole_mass"/>
-            </joint-->
-    
+            </joint>
+
             <gazebo reference = "pole">
-                <material>Gazebo/Black</material>
+                <material>Gazebo/black</material>
             </gazebo>
     
             <gazebo reference = "pole_mass">
-                <material>Gazebo/Blue</material>
+                <material>Gazebo/blue</material>
             </gazebo>
     
         <!--Pendulum/-->

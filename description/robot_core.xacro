@@ -25,7 +25,12 @@
     <material name="red">
         <color rgba="1 0 0 1"/>
     </material>
- 
+    
+    <gazebo>
+        <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
+          <robotSimType>sr_gazebo_sim/SrGazeboHWSim</robotSimType>
+        </plugin>
+      </gazebo>
     <!-- BASE LINK/-->
 
     <link name="base_link">
