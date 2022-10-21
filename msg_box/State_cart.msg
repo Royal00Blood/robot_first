@@ -8,5 +8,8 @@ float32 speed_right
 float32 angular_velocity_left
 float32 angular_velocity_right
 # sensors value (??)
-float32 camera_img
-float32 lidar_array 
+float64 camera_img
+float64 lidar_array 
+# time inf
+time time_iter
+duration duration_iter

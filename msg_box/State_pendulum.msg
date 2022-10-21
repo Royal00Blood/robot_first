@@ -10,3 +10,7 @@ float32 angular_velocity_right
 # pendulum parameters
 float32 angular_pendulum
 float32 angular_velocity_pendulum
+
+# time inf
+time time_iter
+duration duration_iter
