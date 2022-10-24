@@ -5,6 +5,7 @@ from launch import LaunchDescription
 from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
+from launch.substitutions import Command, FindExecutable, LaunchConfiguration, PathJoinSubstitution
 
 def generate_launch_description():
     package_name = 'robot_first'
@@ -15,3 +16,6 @@ def generate_launch_description():
                                      '-entity','robot_first'],
                         output='screen')
     return LaunchDescription([rsp,gazebo,spawn_entity,])
+
+
+    

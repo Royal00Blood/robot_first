@@ -1,11 +1,11 @@
-import rospy
-from std_msgm.msg import String
+import rclpy
+from geometry_msgs.msg import Twist
 
 def callback(data):
-    rospy.loginfo("I heard %s",data.data)
+    rclpy.loginfo("I heard %s",data.data)
 
 def listener():
-    rospy.init_node('State')
-    rospy.Subscriber("chatter",String,callback)
-    rospy.spin()
+    rclpy.init_node('State')
+    rclpy.Subscriber("/cmd_vel", Twist, callback)
+    rclpy.spin()
 

@@ -8,7 +8,8 @@ from launch.actions import DeclareLaunchArgument
 from launch_ros.actions import Node
 
 import xacro
-
+from launch.substitutions import Command, FindExecutable, LaunchConfiguration, PathJoinSubstitution
+from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description():
 
@@ -28,8 +29,17 @@ def generate_launch_description():
         output='screen',
         parameters=[params]
     )
-
-
+    rviz_config_file = PathJoinSubstitution(
+        [pkg_path, "config", "wold.rviz"]
+    )
+    rviz_node = Node(
+        package="rviz2",
+        executable="rviz2",
+        name="rviz2",
+        output="log",
+        arguments=["-d", rviz_config_file],)
+   
+    
     # Launch!
     return LaunchDescription([
         DeclareLaunchArgument(
@@ -37,5 +47,7 @@ def generate_launch_description():
             default_value='false',
             description='Use sim time if true'),
 
-        node_robot_state_publisher
+        node_robot_state_publisher,
+        rviz_node
+
     ])
