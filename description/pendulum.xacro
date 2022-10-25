@@ -2,8 +2,6 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
     
     <xacro:include filename="inertial_macros.xacro"/>
-         <!-- ######################################################################## /-->
-    <!--material color /-->
 
     <material name="white">
         <color rgba="1 1 1 1"/>
@@ -30,14 +28,14 @@
           <robotSimType>sr_gazebo_sim/SrGazeboHWSim</robotSimType>
         </plugin>
       </gazebo>
+
     <!-- BASE LINK/-->
 
     <link name="base_link">
 
     </link>
 
-    <!-- BASE LINK-->
-    <!-- ########################################################################-->
+
     <!--CHASSIS LINK/-->
 
     <joint name="chassis_joint" type="fixed">
@@ -69,8 +67,7 @@
         <material>Gazebo/Blue</material>
     </gazebo>
 
-    <!--CHASSIS LINK-->
-    <!-- ######################################################################## -->
+
     <!-- LEFT WHEEL LINK -->
 
     <joint name="left_wheel_joint" type="continuous">
@@ -103,8 +100,7 @@
         <material>Gazebo/White</material>
     </gazebo>
 
-    <!-- LEFT WHEEL LINK -->
-    <!-- ######################################################################## -->
+
     <!-- RIGHT WHEEL LINK -->
 
     <joint name="right_wheel_joint" type="continuous">
@@ -136,8 +132,7 @@
         <material>Gazebo/White</material>
     </gazebo>
 
-     <!-- RIGHT WHEEL LINK -->
-    <!-- ######################################################################## -->
+
     <!-- CASTER WHEEL LINK-->
 
     <joint name="left_wheel_2_joint" type="continuous">

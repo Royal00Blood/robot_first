@@ -10,8 +10,6 @@
                 <wheel_separation>0.35</wheel_separation>
                 <wheel_diameter>0.1</wheel_diameter>
                
-                
-
             <!-- limits -->
             <max_wheel_torque>200</max_wheel_torque>
             <max_acceleration>10.0</max_acceleration>
@@ -23,7 +21,6 @@
             <publish_odom>true</publish_odom>
             <publish_odom_tf>true</publish_odom_tf>
             <publish_wheel_tf>true</publish_wheel_tf>
-
 
         </plugin>
     </gazebo>
