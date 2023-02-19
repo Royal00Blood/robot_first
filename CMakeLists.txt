@@ -26,6 +26,10 @@ find_package(sensor_msgs REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
+# ament_export_dependencies(geometry_msgs sensor_msgs roscpp message_runtime)
+include_directories(
+  include
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -38,13 +42,10 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-
 install(
   DIRECTORY config description launch worlds
   DESTINATION share/${PROJECT_NAME}
 )
-# install(PROGRAMS
-# py_pubsub/py_pubsub/controller.py
-# DESTINATION lib/${PROJECT_NAME})
+
 
 ament_package()
