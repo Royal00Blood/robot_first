@@ -24,7 +24,6 @@ find_package(rclpy REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
-find_package(gazebo_msgs REQUIRED)
 find_package(rcl_interfaces REQUIRED)
 find_package(tf2_msgs REQUIRED)
 
