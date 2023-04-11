@@ -29,6 +29,7 @@ def generate_launch_description():
         output='screen',
         parameters=[params]
     )
+    
     rviz_config_file = PathJoinSubstitution(
         [pkg_path, "config", "wold.rviz"]
     )
