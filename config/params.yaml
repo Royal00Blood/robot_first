@@ -1,3 +1,4 @@
 gazebo:
   ros__parameters:
-    publish_rate: 600.0 #400
+    real_time_update_rate: 0.0
+   
