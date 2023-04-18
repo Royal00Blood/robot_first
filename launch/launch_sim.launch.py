@@ -15,7 +15,7 @@ def generate_launch_description():
     config_file_name = 'params.yaml' 
     pkg_path = os.path.join(get_package_share_directory('robot_first'))
     config = os.path.join(pkg_path, 'config', config_file_name)
-    gazebo = IncludeLaunchDescription(PythonLaunchDescriptionSource([os.path.join(get_package_share_directory('gazebo_ros'),'launch','gazebo.launch.py')]),launch_arguments={"gui":"True",'extra_gazebo_args': '--ros-args --params-file ' + config}.items())#,'extra_gazebo_args': '-ros-args --params-file ' + config
+    gazebo = IncludeLaunchDescription(PythonLaunchDescriptionSource([os.path.join(get_package_share_directory('gazebo_ros'),'launch','gazebo.launch.py')]),launch_arguments={"gui":"True"}.items())#,'extra_gazebo_args': '--ros-args --params-file ' + config
     
     spawn_entity = Node(package = 'gazebo_ros', 
                         executable = 'spawn_entity.py',
