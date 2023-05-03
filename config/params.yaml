@@ -1,4 +1,5 @@
 gazebo:
   ros__parameters:
     publish_rate: 400
-    real_time_update_rate: 0.
+  world:
+    world_path:'robot_first/world/empty.world'

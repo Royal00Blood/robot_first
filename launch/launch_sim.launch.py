@@ -12,10 +12,20 @@ def generate_launch_description():
 
     rsp = IncludeLaunchDescription(PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(package_name),'launch','rsp.launch.py')]),launch_arguments={'use_sim_time':'true'}.items())
     
-    config_file_name = 'params.yaml' 
     pkg_path = os.path.join(get_package_share_directory('robot_first'))
-    config = os.path.join(pkg_path, 'config', config_file_name)
-    gazebo = IncludeLaunchDescription(PythonLaunchDescriptionSource([os.path.join(get_package_share_directory('gazebo_ros'),'launch','gazebo.launch.py')]),launch_arguments={"gui":"True",'extra_gazebo_args': '--ros-args --params-file ' + config,"world_name":"worlds/empty.world"}.items())#,'extra_gazebo_args': '--ros-args --params-file ' + config
+    config = os.path.join(pkg_path, 'config', 'params.yaml' )
+    world_path = os.path.join(pkg_path, 'world', "empty.world")
+    
+    gazebo = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([os.path.join( get_package_share_directory('gazebo_ros'),'launch','gazebo.launch.py')]),
+        launch_arguments={"gui":"True",'extra_gazebo_args': '--ros-args --params-file ' + config,'"world_name"': world_path}.items())#,'extra_gazebo_args': '--ros-args --params-file ' + config
+    
+    
+    declare_world_cmd = DeclareLaunchArgument(
+    name='world',
+    default_value=world_path,
+    description='Full path to the world model file to load')
+ 
     
     spawn_entity = Node(package = 'gazebo_ros', 
                         executable = 'spawn_entity.py',
@@ -24,6 +34,3 @@ def generate_launch_description():
                         output='screen')
     
     return LaunchDescription([rsp,gazebo,spawn_entity,])
-
-
-    
