@@ -16,11 +16,12 @@ def generate_launch_description():
     config = os.path.join(pkg_path, 'config', 'params.yaml' )
     world_path = os.path.join(pkg_path, 'world', "empty.world")
     
+   
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join( get_package_share_directory('gazebo_ros'),'launch','gazebo.launch.py')]),
         launch_arguments={"gui":"false",
                           'extra_gazebo_args': '--ros-args --params-file ' + config,
-                          "world_name": world_path}.items())
+                          "world_name": world_path}.items())#world_file
  
     spawn_entity = Node(package = 'gazebo_ros', 
                         executable = 'spawn_entity.py',
